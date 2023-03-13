@@ -19,5 +19,5 @@ while state:
     if isinstance(response, float):
         log(f'{time_now.strftime("%d.%m.%y %H:%M:%S")}, {ip}, {"%.2f" % response}', logfile)
     else:
-        log(f'{time_now.strftime("%d.%m.%y %H:%M:%S")}, None', logfile)
+        log(f'{time_now.strftime("%d.%m.%y %H:%M:%S")}, {ip}, None', logfile)
     sleep(1)
