@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-import numpy as np
 
 
 def get_data(filename):
@@ -11,28 +10,27 @@ def get_data(filename):
             result[ip] = result.setdefault(ip, []) + [time_ping]
         return result
 
-def y_graph(log):
+
+def y_graph(log, ip):
     y_ = []
-    for i in log['10.41.9.9']:
+    for i in log[ip]:
         y_.append(i[1])
     return y_
 
 
-def x_graph(log):
+def x_graph(log, ip):
     x_ = []
-    for i in log['10.41.9.9']:
+    for i in log[ip]:
         x_.append(i[0])
     return x_
 
-filename_ = 'log.log'
-# y = np.arange(y_graph(get_data(filename_)))
-# x = np.arange(x_graph(get_data(filename_)))
 
-y = y_graph(get_data(filename_))
-x = x_graph(get_data(filename_))
+filename_ = 'log.log'
+
+ip_inp = input('Введите IP-адрес для построения графика: ')
+y = y_graph(get_data(filename_), ip_inp)
+x = x_graph(get_data(filename_), ip_inp)
 
 plt.plot(x, y)
-plt.xticks(rotation=90)
+plt.xticks(rotation=75)
 plt.show()
-
-print(x_graph(get_data('log.log')))
