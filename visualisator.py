@@ -32,5 +32,6 @@ y = y_graph(get_data(filename_), ip_inp)
 x = x_graph(get_data(filename_), ip_inp)
 
 plt.plot(x, y)
-plt.xticks(rotation=75)
+plt.savefig('ping.png')
+plt.xticks(rotation=85, fontsize = 6)
 plt.show()
